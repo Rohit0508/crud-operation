@@ -37,6 +37,7 @@ const Login=() => {
     }
     return  (
         <div className="login">
+            
            <input className="inputBox" type="text" placeholder="enter email"
            onChange={(e) => setEmail(e.target.value)} value={email}/>
            <input className="inputBox" type="password"  placeholder="enter password"

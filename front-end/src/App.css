@@ -10,7 +10,7 @@
 }
 
 .nav-ul{
-  padding: 5PX;
+  padding: 20PX;
   margin: 0;
   background-color:skyblue;
 }
@@ -30,6 +30,16 @@
 }
 .register{
   margin-left: 30%;
+}
+.nav-right{
+  text-align: right;
+}
+.logo{
+  width: 60px;
+  float: left;
+  border-radius: 50%;
+  margin-top: 3px;
+  margin-left: 20px;
 }
 .login{
   margin-left: 30%;

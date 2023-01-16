@@ -9,21 +9,22 @@ const Nav =()=>{
     }
     return(
         <div>
-            <ul className="nav-ul">
+            <img alt="logo" className="logo" src="https://images-platform.99static.com//wpRpNVHHAEcVppwtrfI4quxaL00=/135x1436:1198x2492/fit-in/590x590/99designs-contests-attachments/101/101749/attachment_101749495"
+            />
+         {auth ?   <ul className="nav-ul">
                 <li><Link to ='/'>products</Link></li>
                 <li><Link to ='/add'>add products</Link></li>
                 <li><Link to ='/update'>Update products</Link></li>
                 
                 <li><Link to ='/profile'>user profile</Link></li>
-
-                {
-                    auth ?<li><Link onClick={logout} to ='/signup'> logout !</Link></li>
-                    :<>
-                    <li><Link to ='/login'>login</Link></li>
-                    <li><Link to ='/signup'>SignUp user</Link></li>
-                    </>
-                }
+                <li><Link onClick={logout} to ='/signup'> logout({JSON.parse(auth).name})</Link></li>
+                
             </ul>
+            :<ul className="nav-ul nav-right">
+                <li><Link to ='/login'>Login</Link></li>
+                    <li><Link to ='/signup'>SignUp</Link></li>
+            </ul>
+            }
         </div>
     )
 }

@@ -15,7 +15,14 @@ const SignUp = () => {
     }, [])
 
     const collectData = async () => {
-        console.warn(name, email, password);
+        if((name&&email)&&password)
+        {
+            console.warn(name, email, password);
+        }
+        else{
+            alert("input all field");
+        }
+        
         let result = await fetch("http://localhost:6800/register", {
             method: 'post',
             body: JSON.stringify({ name, email, password }),
@@ -26,20 +33,25 @@ const SignUp = () => {
         });
         result = await result.json();
         console.warn(result);
-        localStorage.setItem("user", JSON.stringify(result.result))
-        localStorage.setItem("token", JSON.stringify(result.auth))
-
-        navigate('/')
+        localStorage.setItem("user", JSON.stringify(result))
+        
+            navigate('/');
+        
+        // localStorage.setItem("user", JSON.stringify(result.result))
+        // localStorage.setItem("token", JSON.stringify(result.auth))
+        
+        //     navigate('/');
+        
     }
 
     return (
         <div className="register">
             <h1>Register</h1>
             <input className="inputBox" type="text" placeholder="Enter Name"
-                value={name} onChange={(e) => setName(e.target.value)}
+                value={name} onChange={(e) => setName(e.target.value)} 
             />
             <input className="inputBox" type="text" placeholder="Enter Email"
-                value={email} onChange={(e) => setEmail(e.target.value)}
+                value={email} onChange={(e) => setEmail(e.target.value)} 
             />
             <input className="inputBox" type="password" placeholder="Enter password"
                 value={password} onChange={(e) => setPassword(e.target.value)}
