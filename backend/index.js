@@ -43,4 +43,22 @@ app.post("/add-product",async(req,resp)=>{
     let result=await product.save();
     resp.send(result);
 })
+
+app.get("/product-list",async(req,resp)=>{
+    let products= await Product.find();
+    
+    if(products.length>0)
+    {
+        resp.send(products);
+    }
+    else{
+        resp.send({result:"No product found"});
+    }
+})
+
+//for deletig product
+app.delete("/product/:id",async(req,resp)=>{
+    let result= await Product.deleteOne({_id:req.params.id});
+    resp.send(result);
+})
 app.listen(6800);
