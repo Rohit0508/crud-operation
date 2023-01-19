@@ -48,6 +48,13 @@
 .product-list ul{
   margin: 0px;
 }
+.search-box{
+  width: 300px;
+  margin: 20px;
+  height:10px;
+  border: 1px solid skyblue;
+  padding: 20px;
+}
 .invalid-input{
   color: red;
   margin-top: -20px;

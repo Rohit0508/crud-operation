@@ -8,6 +8,7 @@ import Privatecomp from './components/privatecomponents';
 import Login from './components/Login';//first letter of login must be capital
 import Addproduct from './components/Addproduct';
 import ProductList from './components/ProductList';
+import Updateproduct from './components/Update';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <Route element={<Privatecomp />}>
         <Route path='/' element={<ProductList />} />
         <Route path='/add' element={<Addproduct />} />
-        <Route path='/update' element={<h1>update info</h1>} />
+        <Route path='/update/:id' element={<Updateproduct />} />
         <Route path='/logout' element={<h1>logout page</h1>} />
         <Route path='/profile' element={<h1>profile page</h1>} />
         
