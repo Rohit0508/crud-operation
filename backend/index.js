@@ -53,7 +53,7 @@ app.post('/login',async(req,resp)=>{
 })
 
 //route for add product
-app.post("/add-product",verifytoken,async(req,resp)=>{
+app.post("/add-product",async(req,resp)=>{
     let product=new Product(req.body);
     let result=await product.save();
     resp.send(result);
@@ -77,7 +77,7 @@ app.delete("/product/:id",async(req,resp)=>{
     resp.send(result);
 })
 
-app.get("/product/:id",verifytoken,async(req,resp)=>{
+app.get("/product/:id",async(req,resp)=>{
     let result=await Product.findOne({_id:req.params.id});
     if(result)
     {
@@ -99,7 +99,7 @@ app.put("/product/:id",verifytoken,async(req,resp)=>{
     resp.send(result);
 });
 
-app.get('/search/:key',verifytoken ,async(req,resp)=>{
+app.get('/search/:key' ,async(req,resp)=>{
     let result=await Product.find({
         "$or":[
             {name:{$regex:req.params.key}},

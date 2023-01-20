@@ -11,7 +11,7 @@ const ProductList = () => {
     const getProducts = async () => {
         let result = await fetch("http://localhost:6800/product-list",{
             headers:{
-                authorization:JSON.parse(localStorage.getItem('token'))
+                authorization:`bearer${JSON.parse(localStorage.getItem('token'))}`
             }
         });
         result = await result.json();
@@ -33,7 +33,11 @@ const ProductList = () => {
     const searchHandle=async(event)=>{
         // console.warn(event.target.value);
         let key=event.target.value;
-        let result=await fetch(`http://localhost:6800/search/${key}`);
+        let result=await fetch(`http://localhost:6800/search/${key}`,{
+            headers:{
+                authorization:`bearer${JSON.parse(localStorage.getItem('token'))}`
+            }
+        });
         result=await result.json();
         if(result)
         {
