@@ -6,4 +6,4 @@ const Privatecomp=()=>{
     return auth?<Outlet />:<Navigate to="/signup" />
 }
 
-export default Privatecomp
+export default Privatecomp;

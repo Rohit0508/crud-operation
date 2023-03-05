@@ -9,6 +9,7 @@ import Login from './components/Login';//first letter of login must be capital
 import Addproduct from './components/Addproduct';
 import ProductList from './components/ProductList';
 import Updateproduct from './components/Update';
+import Upload from './components/BUTTON';
 
 function App() {
   return (
@@ -16,8 +17,10 @@ function App() {
       <BrowserRouter>
       <Nav />
       <Routes>
+      <Route path='/button' element={<Upload />} />
 
       <Route element={<Privatecomp />}>
+
         <Route path='/' element={<ProductList />} />
         <Route path='/add' element={<Addproduct />} />
         <Route path='/update/:id' element={<Updateproduct />} />
